@@ -1,0 +1,73 @@
+#box
+{
+	margin-top:250px;
+	font-family: 'Roboto', sans-serif;
+}
+a
+{
+	color: #0060B6;
+	text-decoration:none;
+}
+#login_space
+{
+	border-radius: 7px;
+	margin: 0 auto;
+	width: 500px;
+	height: 450px;
+	background-color: #c4c4c4;
+}
+#enter_info
+{
+	margin-left: 15%;
+}
+
+input[type=text], select {
+    width: 75%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=password], select {
+    width: 75%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=submit] {
+    width: 75%;
+    background-color: #d13434;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+
+input[type=submit]:hover {
+    background-color: #b72c2c;
+}
+
+#taskbar
+{
+	border-radius: 7px;
+	margin: 0 auto;
+	margin-top:100px;
+	width: 500px;
+	height: 35px;
+	background-color: #e2e2e2;
+}
+#taskbartext
+{
+	padding:7px;
+	text-align: center;
+}
