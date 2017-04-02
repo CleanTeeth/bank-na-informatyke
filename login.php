@@ -16,8 +16,9 @@ else
 	$numer_klienta = $_POST['clientnumbers'];
 	$pass = $_POST['pass'];
 
+	htmlentities($numer_klienta, ENT_QUOTES, 'UTF-8');
+
 	$pass_hash = password_hash($pass, PASSWORD_DEFAULT);
-	$numer_klienta = mysql_real_escape_string($numer_klienta);
 
 	@$conn_database = new mysqli($host, $db_user, $db_pass, $db_name);
 
@@ -27,9 +28,10 @@ else
 	}
 	else
 	{
-		$query = "SELECT money FROM uzytkownicy WHERE client_number = '$numer_klienta'";
+		$query = sprintf("SELECT money FROM uzytkownicy WHERE client_number = '$numer_klienta'",
+			mysql_real_escape_string($numer_klienta));
 
-		if($result = $conn_database->query($query) && password_verify($pass, $pass_hash))
+		if($result = $conn_database->query($query))
 		{
 			//echo "znow sie udalo<br>";
 			if($result->num_rows == 0)
@@ -39,11 +41,17 @@ else
 			}
 			else
 			{
-				$_SESSION['islogin'] = true;
-				// echo "znaleziono uzytkownika o podanych parametrach<br>";
 				$tab = $result->fetch_assoc();
-				$_SESSION['money'] = $tab['money'];
-				header('Location: main.php'); 
+				if(password_verify($pass, $tab['password']))
+				{
+					$_SESSION['islogin'] = true;
+					$_SESSION['money'] = $tab['money'];
+					header('Location: main.php'); 
+				}
+				else
+				{
+					$_SESSION['islogin'] = false;
+				}
 			}
 			$result->close();
 		}
