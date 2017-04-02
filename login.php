@@ -18,8 +18,6 @@ else
 
 	htmlentities($numer_klienta, ENT_QUOTES, 'UTF-8');
 
-	$pass_hash = password_hash($pass, PASSWORD_DEFAULT);
-
 	@$conn_database = new mysqli($host, $db_user, $db_pass, $db_name);
 
 	if($conn_database->connect_error)
@@ -28,12 +26,11 @@ else
 	}
 	else
 	{
-		$query = sprintf("SELECT money FROM uzytkownicy WHERE client_number = '$numer_klienta'",
+		$query = sprintf("SELECT * FROM uzytkownicy WHERE client_number = '$numer_klienta'",
 			mysql_real_escape_string($numer_klienta));
 
 		if($result = $conn_database->query($query))
 		{
-			//echo "znow sie udalo<br>";
 			if($result->num_rows == 0)
 			{
 				$_SESSION['islogin'] = false;
