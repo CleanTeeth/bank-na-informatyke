@@ -5,6 +5,7 @@
 	<title>Strona główna banku WYSiWYG</title>
 	<link rel="stylesheet" href="stylesheet/stylesignup.css"></style>
 	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	<script src='https://www.google.com/recaptcha/api.js'></script>
 </head>
 <body bgcolor="#383838">
 	<div id="box">
@@ -18,6 +19,7 @@
 					<input type="text" name="email" placeholder="E-mail"> <br>
 					<input type="password" name="pass" placeholder="Hasło"> <br>
 					<input type="password" name="pass2" placeholder="Powtórz hasło"> <br>
+					<div class="g-recaptcha" data-sitekey="6LcTyxgUAAAAAJpf9gOweWyWgBRmiGz8C_rZLGlK"></div> <br> 
 					<input type="submit" value="Zarejestruj się!">						
 				</form>
 			</div>
