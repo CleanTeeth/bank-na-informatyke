@@ -10,7 +10,12 @@ session_start();
 	if ($pass1 != $pass2)
 	{
 		$_SESSION['wrongpassword'] = true;
-		$GLOBALS['wrongpasswordglobal'] = "Hasła się różnią.";
+		header('Location: signupindex.php');
+	}
+	else
+	{
+		$_SESSION['wrongpassword'] = false;
+		header('Location: signupindex.php');		
 	}
 
 

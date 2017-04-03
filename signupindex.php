@@ -20,12 +20,15 @@
 					<input type="password" name="pass" placeholder="Hasło"> <br>
 					<input type="password" name="pass2" placeholder="Powtórz hasło"> <br>
 					<?php 
-							session_start();
-							$_SESSION['islogin'] = false;
-						if (isset($_SESSION['wrongpassword']))
+						session_start();
+						$_SESSION['islogin'] = false;
+						if ($_SESSION['wrongpassword'] == true)
 						{
-							echo $GLOBALS['wrongpasswordglobal']; 
-							
+							echo "Hasła się różnią";
+						}
+						else
+						{
+							echo "";
 						}
 						?>
 					<div class="g-recaptcha" data-sitekey="6LcTyxgUAAAAAJpf9gOweWyWgBRmiGz8C_rZLGlK"></div> <br> 
