@@ -15,13 +15,46 @@
 			<div id="enter_info">
 				<form action="signup.php" method="post">
 					<input type="text" name="name" placeholder="Imię"> <br>
-					<input type="text" name="last_name" placeholder="Nazwisko"> <br>
-					<input type="text" name="email" placeholder="E-mail"> <br>
-					<input type="password" name="pass" placeholder="Hasło"> <br>
-					<input type="password" name="pass2" placeholder="Powtórz hasło"> <br>
 					<?php 
 						session_start();
+						if (isset($_SESSION['nullname']))
+						{
+							echo "Wprowadz dane";
+							unset($_SESSION['nullname']);
+						}
+						else
+						{
+							unset($_SESSION['nullname']);
+						}
+					 ?>
+					<input type="text" name="last_name" placeholder="Nazwisko"> <br>
+					<?php 
+						if (isset($_SESSION['nulllastname']))
+						{
+							echo "Wprowadz dane";
+							unset($_SESSION['nulllastname']);
+						}
+					 ?>
+					<input type="text" name="email" placeholder="E-mail"> <br>
+					<?php 
+						if (isset($_SESSION['nullemail']))
+						{
+							echo "Wprowadz dane";
+							unset($_SESSION['nullemail']);
+						}
+					 ?>
+					<input type="password" name="pass" placeholder="Hasło"> <br>
+					<?php 
+						if (isset($_SESSION['nullpass1']))
+						{
+							echo "Wprowadz dane";
+							unset($_SESSION['nullpass1']);
+						}
+					 ?>
+					<input type="password" name="pass2" placeholder="Powtórz hasło"> <br>
+					<?php 
 						$_SESSION['islogin'] = false;
+
 						if ($_SESSION['wrongpassword'] == true)
 						{
 							echo "Hasła się różnią";
@@ -29,7 +62,6 @@
 						}
 						else
 						{
-
 							// echo "";
 							if(!isset($_SESSION['smallpasslen']))
 							{
