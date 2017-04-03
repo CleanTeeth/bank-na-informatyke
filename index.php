@@ -24,6 +24,11 @@
 						if($_SESSION['wrongsth'] == true)
 						{
 							echo "Złe hasło albo numer klienta";
+							$_SESSION['wrongsth'] = false;
+						}
+						else
+						{
+							echo "";
 						}
 					?>
 					<input type="submit" value="Zaloguj się!">						

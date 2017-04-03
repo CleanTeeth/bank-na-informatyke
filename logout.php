@@ -9,6 +9,7 @@ else
 {	
 	$_SESSION['islogin'] = false;
 	$_SESSION['wrongsth'] = false;
+
 	header('Location: index.php');
 }
 ?>

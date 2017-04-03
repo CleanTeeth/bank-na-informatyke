@@ -25,10 +25,22 @@
 						if ($_SESSION['wrongpassword'] == true)
 						{
 							echo "Hasła się różnią";
+							$_SESSION['wrongpassword'] = false;
 						}
 						else
 						{
-							echo "";
+
+							// echo "";
+							if(!isset($_SESSION['smallpasslen']))
+							{
+								// echo "";
+								unset($_SESSION['smallpasslen']);
+							}
+							else
+							{
+								echo "Za krótkie hasło. Musi mieć więcej niż 10 znaków.";
+								unset($_SESSION['smallpasslen']);
+							}
 						}
 						?>
 					<div class="g-recaptcha" data-sitekey="6LcTyxgUAAAAAJpf9gOweWyWgBRmiGz8C_rZLGlK"></div> <br> 

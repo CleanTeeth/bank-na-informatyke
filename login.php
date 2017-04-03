@@ -48,6 +48,7 @@ else
 				else
 				{
 					$_SESSION['islogin'] = false;
+					$_SESSION['wrongsth'] = true;
 				}
 			}
 			$result->close();
