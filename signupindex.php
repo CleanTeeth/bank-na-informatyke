@@ -55,10 +55,10 @@
 					<?php 
 						$_SESSION['islogin'] = false;
 
-						if ($_SESSION['wrongpassword'] == true)
+						if (isset($_SESSION['wrongpassword']))
 						{
 							echo "Hasła się różnią";
-							$_SESSION['wrongpassword'] = false;
+							unset($_SESSION['wrongpassword']);
 						}
 						else
 						{
@@ -75,10 +75,18 @@
 							}
 						}
 						?>
-					<div class="g-recaptcha" data-sitekey="6LcTyxgUAAAAAJpf9gOweWyWgBRmiGz8C_rZLGlK"></div> <br> 
+					<div class="g-recaptcha" data-sitekey="6LerbhsUAAAAACBByJcBc2SPHvXNmOaYHuNYsZp2"></div> <br> 
+					<?php 
+						if(isset($_SESSION['botornot']))
+						{
+							echo "ZAZNACZ RECAPTCHE!";
+							unset($_SESSION['botornot']);
+						}
+					?>
 					<input type="submit" value="Zarejestruj się!">						
 				</form>
 			</div>
+			<a href="logout.php">Wróć</a>
 		</div>
 	</div>
 </body>

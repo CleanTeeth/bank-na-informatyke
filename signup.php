@@ -8,8 +8,16 @@ session_start();
 	$pass1 = $_POST['pass'];	
 	$pass2 = $_POST['pass2'];
 
+	$sekretny_klucz = "6LerbhsUAAAAAJSx_PfFEEuL8flI4YY-39FsOjN2";
+	$poscik = $_POST['g-recaptcha-response'];
+	$sprawdzcaptcha = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=$sekretny_klucz$response=$poscik");
+	$odpowiedz = json_decode($sprawdzcaptcha);
 
 	//Obsługa postych pól
+	if ($odpowiedz->success == false)
+	{
+		$_SESSION['botornot'] == true;
+	}
 	if ($imie == NULL)
 	{
 		$_SESSION['nullname'] = true;

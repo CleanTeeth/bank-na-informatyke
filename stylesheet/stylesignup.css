@@ -1,6 +1,6 @@
 #box
 {
-	margin-top:250px;
+	margin-top:150px;
 	font-family: 'Roboto', sans-serif;
 }
 a
@@ -13,7 +13,7 @@ a
 	border-radius: 7px;
 	margin: 0 auto;
 	width: 500px;
-	height: 600px;
+	height: 630px;
 	background-color: #c4c4c4;
 }
 #enter_info
