@@ -31,6 +31,7 @@
 						{
 							unset($_SESSION['wrongsth']);
 						}
+						echo $_SESSION['numerk'];
 					?>
 					<input type="submit" value="Zaloguj się!">						
 				</form>

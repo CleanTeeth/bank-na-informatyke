@@ -1,0 +1,1 @@
+<?php die("Nie udało się połączyć z serwerem." . $mysql_conn->connect_errno); ?>

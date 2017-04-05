@@ -43,6 +43,11 @@
 							echo "<div class='errors'>Wprowadz dane</div>";
 							unset($_SESSION['nullemail']);
 						}
+						if (isset($_SESSION['wrongemailstyle']))
+						{
+							echo "<div class='errors'>Zły format e-mail'a</div>";
+							unset($_SESSION['wrongemailstyle']);
+						}
 					 ?>
 					<input type="password" name="pass" placeholder="Hasło"> <br>
 					<?php 
