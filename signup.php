@@ -47,6 +47,11 @@ else if ($_SESSION['islogin'] == false)
 		$_SESSION['nullpass1'] = true;
 		$_SESSION['allok'] = false;
 	}
+	if (!isset($_POST['akceptacjaregulaminu']))
+	{
+		$_SESSION['akceptacjaregulaminusess'] = true;
+		$_SESSION['allok'] = false;
+	}
 
 
 	// Obsługa dlugości i zgodności hasła
@@ -75,7 +80,7 @@ else if ($_SESSION['islogin'] == false)
 
 	if ($_SESSION['allok'] == true)
 	{
-		
+
 	}
 
 

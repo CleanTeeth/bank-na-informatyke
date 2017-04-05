@@ -75,12 +75,20 @@
 							}
 						}
 						?>
-					<input type="checkbox" name="akceptacjaregulaminu"> Akceptuje <a href="regulamin.html" target="_blank">regulamin</a>
+						<br>
+					<label><input type="checkbox" name="akceptacjaregulaminu"> Akceptuje <a href="regulamin.html" target="_blank">regulamin</a></label><br>
+					<?php 
+						if(isset($_SESSION['akceptacjaregulaminusess']))
+						{
+							echo "Zaakcaptuj regulamin, proszę.";
+							unset($_SESSION['akceptacjaregulaminusess']);
+						}
+					?><br> 
 					<div class="g-recaptcha" data-sitekey="6LerbhsUAAAAACBByJcBc2SPHvXNmOaYHuNYsZp2"></div> <br> 
 					<?php
 						if(isset($_SESSION['botornot']))
 						{
-							echo "ZAZNACZ RECAPTCHE!";
+							echo "Zaznacz recaptche, proszę.";
 							unset($_SESSION['botornot']);
 						}
 					?>
