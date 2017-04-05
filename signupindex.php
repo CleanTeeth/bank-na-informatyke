@@ -63,20 +63,20 @@
 						else
 						{
 							// echo "";
-							if(!isset($_SESSION['smallpasslen']))
+							if(isset($_SESSION['smallpasslen']))
 							{
 								// echo "";
+								echo "Za krótkie hasło. Musi mieć więcej niż 10 znaków.";
 								unset($_SESSION['smallpasslen']);
 							}
 							else
 							{
-								echo "Za krótkie hasło. Musi mieć więcej niż 10 znaków.";
 								unset($_SESSION['smallpasslen']);
 							}
 						}
 						?>
 					<div class="g-recaptcha" data-sitekey="6LerbhsUAAAAACBByJcBc2SPHvXNmOaYHuNYsZp2"></div> <br> 
-					<?php 
+					<?php
 						if(isset($_SESSION['botornot']))
 						{
 							echo "ZAZNACZ RECAPTCHE!";

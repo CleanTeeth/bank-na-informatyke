@@ -10,7 +10,7 @@ else
 {
 	header('Location: index.php');
 }
-
+	
 	$_SESSION['islogin'] = false;
 
 	$numer_klienta = $_POST['clientnumbers'];

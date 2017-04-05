@@ -7,8 +7,8 @@ if($_SESSION['islogin'] == false)
 }
 else
 {	
-	$_SESSION['islogin'] = false;
-	$_SESSION['wrongsth'] = false;
+	unset($_SESSION['islogin']);
+	unset($_SESSION['wrongsth']);
 
 	header('Location: index.php');
 }

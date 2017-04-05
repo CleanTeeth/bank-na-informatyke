@@ -21,10 +21,10 @@
 					<?php 
 					session_start();
 						$_SESSION['islogin'] = false;
-						if($_SESSION['wrongsth'] == true)
+						if(isset($_SESSION['wrongsth']))
 						{
 							echo "Złe hasło albo numer klienta";
-							$_SESSION['wrongsth'] = false;
+							unset($_SESSION['wrongsth']);
 						}
 						else
 						{
