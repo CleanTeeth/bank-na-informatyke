@@ -55,10 +55,10 @@
 					<?php 
 						$_SESSION['islogin'] = false;
 
-						if (isset($_SESSION['wrongpassword']))
+						if (isset($_SESSION['diffpass']))
 						{
 							echo "Hasła się różnią";
-							unset($_SESSION['wrongpassword']);
+							unset($_SESSION['diffpass']);
 						}
 						else
 						{

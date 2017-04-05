@@ -3,7 +3,6 @@ session_start();
 if($_SESSION['islogin'] == false)
 {
 	header('Location: index.php');
-	$_SESSION['wrongsth'] = true;
 }
 else
 {	

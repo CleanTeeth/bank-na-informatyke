@@ -44,15 +44,15 @@ else if ($_SESSION['islogin'] == false)
 
 
 	// Obsługa dlugości i zgodności hasła
-	if (($pass1 != $pass2) || ($pass1 != NULL && $pass2 != NULL))
+	if ($pass1 != $pass2)
 	{
-		$_SESSION['wrongpassword'] = true;
+		$_SESSION['diffpass'] = true;
 		header('Location: signupindex.php');
 	}
 	else
 	{
-		$_SESSION['wrongpassword'] = false;
-		if(strlen($pass1) >= 10)
+		unset($_SESSION['diffpass']);
+		if(strlen($pass1) >= 4)
 		{
 			$_SESSION['signupdone'] = true;
 			header('Location: index.php');		

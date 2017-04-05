@@ -4,14 +4,17 @@ require_once('database_connect.php');
 
 if($_SESSION['islogin'] == true)
 {
+	unset($_SESSION['wrongsth']);
 	header('Location: main.php');
 }
 else
 {
+	unset($_SESSION['wrongsth']);
 	header('Location: index.php');
 }
 	
 	$_SESSION['islogin'] = false;
+	unset($_SESSION['wrongsth']);
 
 	$numer_klienta = $_POST['clientnumbers'];
 	$pass = $_POST['pass'];
@@ -42,6 +45,7 @@ else
 				if(password_verify($pass, $tab['password']))
 				{
 					$_SESSION['islogin'] = true;
+					unset($_SESSION['wrongsth']);
 					$_SESSION['money'] = $tab['money'];
 					header('Location: main.php'); 
 				}
@@ -56,6 +60,7 @@ else
 		else
 		{
 			$_SESSION['islogin'] = false;
+			$_SESSION['wrongsth'] = true;
 		}
 	}
 ?>

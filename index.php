@@ -9,7 +9,7 @@
 <body bgcolor="#383838">
 	<div id="box">
 		<div id="taskbar">
-			<div id="taskbartext"><a href="index.html">Strona główna</a> | <a href="News.html">Aktualności</a> | <a href="signup.php">Rejestracja</a></div>
+			<div id="taskbartext"><a href="index.php">Strona główna</a> | <a href="News.html">Aktualności</a> | <a href="signupindex.php">Rejestracja</a></div>
 		</div>
 		<br>
 		<div id="login_space"><br>
@@ -28,7 +28,7 @@
 						}
 						else
 						{
-							echo "";
+							unset($_SESSION['wrongsth']);
 						}
 					?>
 					<input type="submit" value="Zaloguj się!">						
