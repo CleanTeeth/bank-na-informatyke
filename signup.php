@@ -15,6 +15,12 @@ else if ($_SESSION['islogin'] == false)
 	$pass1 = $_POST['pass'];	
 	$pass2 = $_POST['pass2'];
 
+	htmlentities($imie, ENT_QUOTES, "UTF-8");
+	htmlentities($nazwisko, ENT_QUOTES, "UTF-8");
+	htmlentities($email, ENT_QUOTES, "UTF-8");
+	htmlentities($pass1, ENT_QUOTES, "UTF-8");
+	htmlentities($pass2, ENT_QUOTES, "UTF-8");
+
 	$sekretny_klucz = "6LerbhsUAAAAAJSx_PfFEEuL8flI4YY-39FsOjN2";
 	$sprawdzcaptcha = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=".$sekretny_klucz."&response=".$_POST['g-recaptcha-response']);
 	$odpowiedz = json_decode($sprawdzcaptcha);
