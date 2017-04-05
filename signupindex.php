@@ -75,6 +75,7 @@
 							}
 						}
 						?>
+					<input type="checkbox" name="akceptacjaregulaminu"> Akceptuje <a href="regulamin.html" target="_blank">regulamin</a>
 					<div class="g-recaptcha" data-sitekey="6LerbhsUAAAAACBByJcBc2SPHvXNmOaYHuNYsZp2"></div> <br> 
 					<?php
 						if(isset($_SESSION['botornot']))
