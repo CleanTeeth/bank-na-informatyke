@@ -67,7 +67,6 @@ else if ($_SESSION['islogin'] == false)
 		if(strlen($pass1) >= 4)
 		{
 			unset($_SESSION['smallpasslen']);
-			// $_SESSION['signupdone'] = true;
 			header('Location: signupindex.php');		
 		}
 		else
@@ -78,10 +77,10 @@ else if ($_SESSION['islogin'] == false)
 		}
 	}
 
-	if ($_SESSION['allok'] == true)
-	{
+	// if ($_SESSION['allok'] == true)
+	// {
 
-	}
+	// }
 
 
 ?>

@@ -4,6 +4,7 @@
 	<meta charset="utf-8">
 	<title>Strona główna banku WYSiWYG</title>
 	<link rel="stylesheet" href="stylesheet/stylesignup.css"></style>
+	<link rel="stylesheet" href="stylesheet/stylefromerrors.css"></style>
 	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 	<script src='https://www.google.com/recaptcha/api.js'></script>
 </head>
@@ -19,7 +20,7 @@
 						session_start();
 						if (isset($_SESSION['nullname']))
 						{
-							echo "Wprowadz dane";
+							echo "<div class='errors'>Wprowadz dane</div>";
 							unset($_SESSION['nullname']);
 						}
 						else
@@ -31,7 +32,7 @@
 					<?php 
 						if (isset($_SESSION['nulllastname']))
 						{
-							echo "Wprowadz dane";
+							echo "<div class='errors'>Wprowadz dane</div>";
 							unset($_SESSION['nulllastname']);
 						}
 					 ?>
@@ -39,7 +40,7 @@
 					<?php 
 						if (isset($_SESSION['nullemail']))
 						{
-							echo "Wprowadz dane";
+							echo "<div class='errors'>Wprowadz dane</div>";
 							unset($_SESSION['nullemail']);
 						}
 					 ?>
@@ -47,7 +48,7 @@
 					<?php 
 						if (isset($_SESSION['nullpass1']))
 						{
-							echo "Wprowadz dane";
+							echo "<div class='errors'>Wprowadz dane</div>";
 							unset($_SESSION['nullpass1']);
 						}
 					 ?>
@@ -57,7 +58,7 @@
 
 						if (isset($_SESSION['diffpass']))
 						{
-							echo "Hasła się różnią";
+							echo "<div class='errors'>Hasła się różnią</div>";
 							unset($_SESSION['diffpass']);
 						}
 						else
@@ -66,7 +67,7 @@
 							if(isset($_SESSION['smallpasslen']))
 							{
 								// echo "";
-								echo "Za krótkie hasło. Musi mieć więcej niż 10 znaków.";
+								echo "<div class='errors'>Za krótkie hasło. Musi mieć więcej niż 10 znaków.</div>";
 								unset($_SESSION['smallpasslen']);
 							}
 							else
@@ -80,7 +81,7 @@
 					<?php 
 						if(isset($_SESSION['akceptacjaregulaminusess']))
 						{
-							echo "Zaakcaptuj regulamin, proszę.";
+							echo "<div class='errors'>Zaakcaptuj regulamin, proszę.</div>";
 							unset($_SESSION['akceptacjaregulaminusess']);
 						}
 					?><br> 
@@ -88,7 +89,7 @@
 					<?php
 						if(isset($_SESSION['botornot']))
 						{
-							echo "Zaznacz recaptche, proszę.";
+							echo "<div class='errors'>Zaznacz recaptche, proszę.</div>";
 							unset($_SESSION['botornot']);
 						}
 					?>

@@ -4,6 +4,7 @@
 	<meta charset="utf-8">
 	<title>Strona główna banku WYSiWYG</title>
 	<link rel="stylesheet" href="stylesheet/styleindex.css"></style>
+	<link rel="stylesheet" href="stylesheet/stylefromerrors.css"></style>
 	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 </head>
 <body bgcolor="#383838">
@@ -23,7 +24,7 @@
 						$_SESSION['islogin'] = false;
 						if(isset($_SESSION['wrongsth']))
 						{
-							echo "Złe hasło albo numer klienta";
+							echo "<div class='errors'>Złe hasło albo numer klienta.</div>";
 							unset($_SESSION['wrongsth']);
 						}
 						else
