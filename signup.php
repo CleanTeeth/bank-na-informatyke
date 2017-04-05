@@ -1,6 +1,13 @@
 <?php 
 session_start();
-
+if ($_SESSION['islogin'] == true)
+{
+	header('Location: main.php');
+}
+else if ($_SESSION['islogin'] == false) 
+{
+	header('Location: index.php');
+}
 
 	$imie = $_POST['name'];	
 	$nazwisko = $_POST['last_name'];	
@@ -8,16 +15,16 @@ session_start();
 	$pass1 = $_POST['pass'];	
 	$pass2 = $_POST['pass2'];
 
-	$sekretny_klucz = "6LerbhsUAAAAAJSx_PfFEEuL8flI4YY-39FsOjN2";
-	$poscik = $_POST['g-recaptcha-response'];
-	$sprawdzcaptcha = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=$sekretny_klucz$response=$poscik");
-	$odpowiedz = json_decode($sprawdzcaptcha);
+	// $sekretny_klucz = "6LerbhsUAAAAAJSx_PfFEEuL8flI4YY-39FsOjN2";
+	// $poscik = $_POST['g-recaptcha-response'];
+	// $sprawdzcaptcha = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=$sekretny_klucz$response=$poscik");
+	// $odpowiedz = json_decode($sprawdzcaptcha);
 
-	//Obsługa postych pól
-	if ($odpowiedz->success == false)
-	{
-		$_SESSION['botornot'] == true;
-	}
+	// //Obsługa postych pól
+	// if ($odpowiedz->success == false)
+	// {
+	// 	$_SESSION['botornot'] == true;
+	// }
 	if ($imie == NULL)
 	{
 		$_SESSION['nullname'] = true;
@@ -37,7 +44,7 @@ session_start();
 
 
 	// Obsługa dlugości i zgodności hasła
-	if ($pass1 != $pass2 && $pass1 != NULL && $pass2 != NULL)
+	if (($pass1 != $pass2) || ($pass1 != NULL && $pass2 != NULL))
 	{
 		$_SESSION['wrongpassword'] = true;
 		header('Location: signupindex.php');
@@ -47,7 +54,8 @@ session_start();
 		$_SESSION['wrongpassword'] = false;
 		if(strlen($pass1) >= 10)
 		{
-			header('Location: paneluzytkownika.php');		
+			$_SESSION['signupdone'] = true;
+			header('Location: index.php');		
 		}
 		else
 		{
