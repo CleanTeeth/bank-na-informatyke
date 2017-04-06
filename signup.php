@@ -21,6 +21,12 @@ else if ($_SESSION['islogin'] == false)
 	htmlentities($pass1, ENT_QUOTES, "UTF-8");
 	htmlentities($pass2, ENT_QUOTES, "UTF-8");
 
+	$imie = mysql_real_escape_string($imie);
+	$nazwisko = mysql_real_escape_string($nazwisko);
+	$email = mysql_real_escape_string($email);
+	$pass1 = mysql_real_escape_string($pass1);
+	$pass2 = mysql_real_escape_string($pass2);
+
 	$hash_pass = password_hash($pass1, PASSWORD_DEFAULT);
 	$znajdzmnie1 = "@";
 	$znajdzmnie2 = ".";
@@ -72,7 +78,6 @@ else if ($_SESSION['islogin'] == false)
 		$_SESSION['allok'] = false;
 	}
 
-
 	// Obsługa dlugości i zgodności hasła
 	if ($pass1 != $pass2)
 	{
@@ -83,10 +88,10 @@ else if ($_SESSION['islogin'] == false)
 	else
 	{
 		unset($_SESSION['diffpass']);
-		if(strlen($pass1) >= 4)
+		if(strlen($pass1) >= 10)
 		{
+			$_SESSION['allok'] = true;
 			unset($_SESSION['smallpasslen']);
-			header('Location: signupindex.php');		
 		}
 		else
 		{
@@ -96,11 +101,13 @@ else if ($_SESSION['islogin'] == false)
 		}
 	}
 
-	for ($i=1; $i <= 8; $i++) 
-	{ 
-		$numer += rand(0,9);
+	$numer = " ";
+	for ($i=1; $i <= 8; $i++) { 
+		$los = rand(0,9);
+		$numer = $numer . $los + "";
 	}
 	$_SESSION['numerk'] = $numer;
+
 
 	if ($_SESSION['allok'] == true)
 	{
@@ -108,18 +115,20 @@ else if ($_SESSION['islogin'] == false)
 		$conn_database = @new mysqli($host, $db_user, $db_pass, $db_name);
 		if ($conn_database->connect_error)
 		{
+			//header('Location: signupindex.php');		
 			header('Location: signuperr.php');
 		}
 		else
 		{
-			$query = "INSERT INTO uzytkownicy (client_number, password, email, name, last_name) VALUES ($numer, $hash_pass, $email, $imie, $nazwisko)";
-			$rezultat = $mysqli_conn->query($query);
-			if($rezultat)
-			{
-				header('Location: cos.php');
-			}
-			header('Location: index.php');
+			$query1 = "INSERT INTO uzytkownicy (client_number, password, email, name, last_name) VALUES ('$numer', '$hash_pass', '$email', '$imie', '$nazwisko')";
+			$conn_database->query($query1) or die(header('Location: signuperr.php'));
+			header('Location: clientnumber.php');
+
 		}
+	}
+	else
+	{
+		header('Location: signupindex.php');
 	}
 
 
